@@ -10,12 +10,14 @@
 		p{margin:10px 0}
 		.cta{display:inline-block;background:#111;color:#fff;padding:12px 16px;border-radius:10px;text-decoration:none}
 		.card{border:1px solid #eee;border-radius:16px;padding:18px;margin:18px 0}
+		.small{color:#555;font-size:14px}
 	</style>
+	<script src="./config.js"></script>
 </head>
 <body>
-	<h1>Get your first 10 qualified leads in 7 days (without ads)</h1>
-	<p>A simple outbound + landing loop you can run in 60 minutes/day.</p>
-	<p><a class="cta" href="#lead">Get the 1-page playbook</a></p>
+	<h1 id="headline"></h1>
+	<p id="subhead"></p>
+	<p><a class="cta" href="#lead" id="cta"></a></p>
 
 	<div class="card">
 		<h2>What you get</h2>
@@ -27,9 +29,9 @@
 	</div>
 
 	<div class="card" id="lead">
-		<h2>Get the playbook</h2>
-		<p>Embed your free form here (Tally / Google Forms). Replace this placeholder with your form embed code.</p>
-		<!-- FORM EMBED GOES HERE -->
+		<h2 id="cta2"></h2>
+		<p class="small">Paste your form embed into <code>site/config.js</code> (formEmbedHtml) and redeploy.</p>
+		<div id="form"></div>
 	</div>
 
 	<div class="card">
@@ -38,5 +40,19 @@
 		<p><strong>Do I need ads?</strong> No.</p>
 		<p><strong>What if I don’t have proof yet?</strong> Use placeholders, then replace quickly.</p>
 	</div>
+
+	<script>
+		const cfg = window.LANDING_CONFIG || {};
+		document.getElementById('headline').textContent = cfg.headline || 'Headline';
+		document.getElementById('subhead').textContent = cfg.subhead || '';
+		document.getElementById('cta').textContent = cfg.ctaText || 'Get it';
+		document.getElementById('cta2').textContent = cfg.ctaText || 'Get it';
+		const form = document.getElementById('form');
+		if (cfg.formEmbedHtml && cfg.formEmbedHtml.trim().length > 0) {
+			form.innerHTML = cfg.formEmbedHtml;
+		} else {
+			form.innerHTML = '<div class="small">(No form embed yet)</div>';
+		}
+	</script>
 </body>
 </html>
