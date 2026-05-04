@@ -1,10 +1,23 @@
-# autonomous-builder workspace
+# autonomous-builder
 
-Kitchen-sink monorepo of Neuruh/POAG micro-products. Each subfolder maintains **its own git history** targeting either `NeuruhAI/*` modules or Jeramie's personal forks.
+Two layers live in **this repo**:
 
-> Root-level clone: `git clone <this-repo>` documents what lives here—it does **not** embed every child repository. Use submodule workflows or standalone clones per folder.
+1. **Scaffold** — Docs + `/site` static landing MVP (historic content from GitHub history).
+2. **Workspace catalogue** — The workstation directory bundles many sibling git repositories maintained under `NeuruhAI/*` plus personal forks (`poag-pathways`). Each child folder retains its **own `.git`**; clone individually or run `git clone` recursively with submodules if you replicate that layout.
 
-## Indexed packages
+---
+
+## Scaffold (original repo)
+
+Execution templates and static MVP live under **`docs/`** and **`site/`**.
+
+- **`docs/execution-plays.md`**, **`docs/landing-mvp-spec.md`**
+- **Templates**: `docs/templates/playbook-one-pager.md`, `docs/templates/outreach-log.csv`, `docs/templates/revenue-experiment.csv`
+- **Landing config**: tweak `site/config.js` (`headline`, `subhead`, `ctaText`, `formEmbedHtml`, …)
+
+---
+
+## Indexed child repositories (workspace)
 
 | Folder | Origin |
 |--------|--------|
@@ -34,6 +47,8 @@ Kitchen-sink monorepo of Neuruh/POAG micro-products. Each subfolder maintains **
 | `smartcart-chef-planner` | https://github.com/NeuruhAI/smartcart-chef-planner.git |
 | `token-weighted-image-queue` | https://github.com/NeuruhAI/token-weighted-image-queue.git |
 
-## Contributing
+Root-level **`*.mjs`** utilities (`build-phases-24-26`, `phase27-update-audits`, `repair-phase21a`) plus `PRODUCT_DEPLOYMENT_DECISION_PHASE_29.md` batch automation/playbooks tied to POAG rollout phases—run from this directory with Node 18+.
 
-Bump child repositories independently, open PRs in their owning orgs (`NeuruhAI` vs personal account), then update this catalogue if naming or ownership shifts.
+### Contributing inside the workspace tree
+
+Bump child repos independently (`git -C ./child pull && git push`) so NeuruhAI org permissions stay authoritative. Refresh the table whenever ownership or repository names drift.
