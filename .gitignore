@@ -1,0 +1,27 @@
+
+# Nested repositories (each has its own Git history).
+atomic-node-registry/
+autonomous-governance-core/
+behavioral-memory-bank/
+constraint-engineering-core/
+contextual-inception-framework/
+deployment-packager/
+drift-detector-api/
+ether-layer-event-bus/
+fishcast-ai/
+inference-mesh-router/
+ip-timestamp-bundler/
+ipp-intent-preservation-api/
+low-risk-product-audit/
+microsaas-factory-kit/
+neuruh-factory-router/
+neuruh-repo-bootstrapper/
+notion-codepack-deploy-harness/
+ocn-hybrid-inference-router/
+poag-ai-training-portal/
+poag-pathways/
+revenue-launch-router/
+semantic-fuse-api/
+semantic-platform-audit/
+smartcart-chef-planner/
+token-weighted-image-queue/
